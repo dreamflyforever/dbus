@@ -1,10 +1,11 @@
 all: server client
 
 server: server.cpp
-	g++ -o server `pkg-config --cflags --libs dbus-1` server.cpp
+	g++ -o server server.cpp `pkg-config --libs --cflags dbus-1 dbus-glib-1 glib-2.0`
+
 
 client: client.cpp
-	g++ -o client `pkg-config --cflags --libs dbus-1` client.cpp
+	g++ -o client client.cpp `pkg-config --libs --cflags dbus-1 dbus-glib-1 glib-2.0`
 
 clean:
 	rm client server
